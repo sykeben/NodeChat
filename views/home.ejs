@@ -44,6 +44,12 @@
                 position: fixed; left: 37.5%; top: 45%; width: 40%;
             }
 
+            p { color: white; width: 60%; text-align: center; margin-top: 15px; }
+
+            a { color: lightblue; text-decoration: none; }
+            a:hover { color: lightcyan; text-decoration: underline; }
+            a:visited { color: lightblue; }
+
         </style>
 
         <script src="/socket.io/socket.io.js"></script>
@@ -75,6 +81,7 @@
             <div>
                 <input id="r" autocomplete="off" placeholder="Enter chat room" />
                 <button>Go</button>
+                <p>Can't think of a room? Try <a href="room/welcome">the welcome room</a>!</p>
             </div>
         </form>
         
