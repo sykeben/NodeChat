@@ -1,0 +1,26 @@
+{
+  "name": "nodechat",
+  "version": "1.0.0",
+  "description": "NodeJS-powered public chat server. (Like an IRC)",
+  "main": "server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sykeben/NodeChat.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "SykeBen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sykeben/NodeChat/issues"
+  },
+  "homepage": "https://github.com/sykeben/NodeChat#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
