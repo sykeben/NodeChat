@@ -2,7 +2,7 @@
 const path = require('path')
 
 // Config.
-const config = require('./config.json')
+const port = process.env.PORT || require('./config').port
 
 // Servers.
 const app = require('express')()
@@ -24,4 +24,4 @@ io.on('connection', function(socket){
 
 // Starter.
 app.set('view engine', 'ejs')
-http.listen(config.port, () => console.log(`Listening on port ${config.port}.`))
+http.listen(port, () => console.log(`Listening on port ${port}.`))
