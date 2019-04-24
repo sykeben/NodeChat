@@ -23,13 +23,18 @@
             }
 
             #u { width: 19.25%; }
-            #m { width: 70%; }
+            #m { width: 60%; }
 
-            form input {
+            #u, #m {
                 border: 0; padding: 10px;
                 margin-left: .25%;
                 border-radius: 5px;
                 background-color: #eeeeee;
+            }
+
+            #at {
+                color: white;
+                padding-left: 15px;
             }
 
             form button {
@@ -67,7 +72,7 @@
                 socket.on('chat echo: <%- room %>', function(msg){
                     const parts = msg.split('\t');
                     document.getElementById('messages').innerHTML += `<li><b>[${parts[0]}]</b> ${parts[1]}`;
-                    window.scrollTo(0,document.body.scrollHeight);
+                    if ($('#a').is(":checked")) window.scrollTo(0,document.body.scrollHeight);
                 });
 
                 $('#u').on('change keyup paste', function() {
@@ -77,6 +82,7 @@
                 window.onload = function() {
                     if (!(['', null].indexOf(localStorage.getItem('nickname')) < -1)) localStorage.setItem('nickname', 'User');
                     $('#u').val(localStorage.getItem('nickname'));
+                    $('#a').prop('checked', true);
                 };
 
             });
@@ -93,6 +99,7 @@
             <input id="u" autocomplete="off" placeholder="Nickname" />
             <input id="m" autocomplete="off" placeholder="Message" />
             <button>Send</button>
+            <span id="at"><input id="a" type="checkbox"> Auto Scroll</span>
         </form>
         
     </body>
