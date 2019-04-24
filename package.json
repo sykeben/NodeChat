@@ -4,6 +4,7 @@
   "description": "NodeJS-powered public chat server. (Like an IRC)",
   "main": "server/main.js",
   "scripts": {
+    "start": "node server/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
