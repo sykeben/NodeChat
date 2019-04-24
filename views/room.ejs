@@ -65,8 +65,9 @@
                 });
 
                 socket.on('chat echo: <%- room %>', function(msg){
-                    const parts = msg.split('\t')
+                    const parts = msg.split('\t');
                     document.getElementById('messages').innerHTML += `<li><b>[${parts[0]}]</b> ${parts[1]}`;
+                    window.scrollTo(0,document.body.scrollHeight);
                 });
 
                 $('#u').on('change keyup paste', function() {
@@ -74,8 +75,8 @@
                 });
 
                 window.onload = function() {
-                    if (!(['', null].indexOf(localStorage.getItem('nickname')) < -1)) localStorage.setItem('nickname', 'User')
-                    $('#u').val(localStorage.getItem('nickname'))
+                    if (!(['', null].indexOf(localStorage.getItem('nickname')) < -1)) localStorage.setItem('nickname', 'User');
+                    $('#u').val(localStorage.getItem('nickname'));
                 };
 
             });
