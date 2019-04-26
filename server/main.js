@@ -28,7 +28,7 @@ if (dbString !== 'false') {
 
     app.get('/data/info', (req, res) => {
         res.send({
-            dbString: dbString
+            dbString: '[disabled]'
         })
     })
 
