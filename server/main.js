@@ -1,8 +1,9 @@
 // Modules.
 const path = require('path')
 
-// Config.
-const port = process.env.PORT || require('./config').port
+// Config (Set "dbString" in the config to "false" if not using a DB).
+const port = process.env.PORT || require('./config').port // If running on Heroku it will use the supplied port.
+const dbString = process.env.DATABASE_URL || require('./config').dbString // If running on Heroku it will try to use the enviroment's DB string.
 
 // Servers.
 const app = require('express')()
@@ -21,6 +22,17 @@ io.on('connection', function(socket){
         io.emit(`chat echo: ${parts[0]}`, `${parts[1]}\t${parts[2]}`)
     })
 })
+
+// Postgres DB (only if enabled).
+if (dbString !== 'false') {
+
+    app.get('/data/info', (req, res) => {
+        res.send({
+            dbString: dbString
+        })
+    })
+
+}
 
 // Starter.
 app.set('view engine', 'ejs')
